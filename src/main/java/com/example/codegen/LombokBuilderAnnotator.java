@@ -8,6 +8,9 @@ public class LombokBuilderAnnotator extends AbstractAnnotator {
 
     @Override
     public void propertyInclusion(JDefinedClass clazz, JsonNode schema) {
+        clazz.annotate(clazz.owner().ref("lombok.Builder"));
         clazz.annotate(clazz.owner().ref("lombok.EqualsAndHashCode"));
+        clazz.annotate(clazz.owner().ref("lombok.NoArgsConstructor"));
+        clazz.annotate(clazz.owner().ref("lombok.AllArgsConstructor"));
     }
 }
